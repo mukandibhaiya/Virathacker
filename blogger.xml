@@ -11,7 +11,7 @@
     ]]></b:skin>
 </head>
 <body>
-<Script Language='Javascript'>
+<Script Language='en'>
 
 (function() {
     function utf8Base64Decode(base64) {
